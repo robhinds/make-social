@@ -1,0 +1,108 @@
+/** Core default styles **/
+body {
+	background: url('../img/lightGrey.png');
+	color: #7a4c4c;
+	font-family: 'Lato', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {font-family: 'Lato', sans-serif;font-weight: 300;}
+/** End Core default styles **/
+/**  #29aae1 - blue bground **/
+
+.rounded {
+	padding-left:10px;
+	padding-right:10px;
+	padding-top:10px;
+	padding-bottom:10px;
+	margin-left:5px;
+	margin-right:5px;
+	margin-top:0px;
+	margin-bottom:10px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+}
+
+/** Colour scheme stuff **/
+.white{
+	background: #fff;
+}
+/** End Colour scheme stuff **/
+
+
+.text-right{
+	text-align:right
+}
+.text-center{
+	text-align:center
+}
+.text-justify{
+	text-align:justify;
+	text-justify:inter-word;
+}
+.section-buffer{
+	padding-top: 35px;
+}
+
+/** LOGIN CSS **/
+.form-signin {
+	max-width: 300px;
+	padding-bottom: 19px;
+	margin: 0 auto 20px;
+}
+.form-signin-container {
+	max-width: 350px;
+	margin: 0 auto 0px;
+}
+.form-signin .form-signin-heading, 
+.form-signin .checkbox {
+	margin-bottom: 10px;
+}
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+	font-size: 16px;
+	height: auto;
+	margin-bottom: 15px;
+	padding: 7px 9px;
+}
+/** END LOGIN CSS**/
+
+.form-signup-div{
+	padding-left: 25px;
+	padding-right: 25px;
+	margin-bottom: 20px;
+}
+
+/** Custom tag highlighting **/
+.tag{
+    font-size: 8px;
+    padding: 0 4px;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 4px;
+    display: inline-block;
+}
+.diy{
+	background-color: #94D4F0;
+}
+.craft{
+	background-color: #E8885E;
+}
+.construction{
+	background-color: #E0BC29;
+}
+.cooking{
+	background-color: #29E0BC;
+}
+.activityMessage{
+	background-color: #E06029;
+}
+/** End Custom tag highlighting **/
+
+.fine-print{
+	font-size:x-small;
+	font-style:italic;
+    font-weight:bold;
+    color: #999999;
+}
