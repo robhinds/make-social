@@ -56,7 +56,7 @@ public class SignupController {
 				accountService.setCredentials();
 				accountService.createNewUser(username, email1, pword1);
 				accountService.clearCredentials();
-				return new ModelAndView("redirect:/sign-in?success=true");
+				return new ModelAndView("redirect:/?success=true");
 			} catch (CustomException cex) {
 				if (cex.getExceptionCode().equals(CustomExceptionCode.USER002_DUPLICATEUSER)) {
 					model.put("usernameerror", "Error registering - This username is already registered (is it already yours? if so login now)");

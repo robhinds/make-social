@@ -7,6 +7,9 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
 
+import org.apache.commons.dbcp.BasicDataSource;
+import org.cloudfoundry.runtime.env.CloudEnvironment;
+import org.cloudfoundry.runtime.env.MysqlServiceInfo;
 import org.hibernate.ejb.HibernatePersistence;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AdviceMode;
@@ -21,8 +24,6 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaDialect;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-
-import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 @Configuration
 @EnableTransactionManagement(mode = AdviceMode.ASPECTJ, proxyTargetClass = true)
@@ -53,18 +54,23 @@ public class ApplicationContextConfiguration {
 		emf.setPackagesToScan("com.tmm.maker.domain", "com.tmm.maker.security");
 		emf.setPersistenceProvider(new HibernatePersistence());
 		emf.getJpaPropertyMap().put("hibernate.hbm2ddl.auto", "update");
+		emf.getJpaPropertyMap().put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
 		emf.afterPropertiesSet();
 		emf.setJpaDialect(new HibernateJpaDialect());
 		return emf.getObject();
 	}
 
 	@Bean
-	public ComboPooledDataSource dataSource() throws PropertyVetoException {
-		ComboPooledDataSource bean = new ComboPooledDataSource();
-		bean.setDriverClass(env.getProperty("database.driverClassName"));
-		bean.setJdbcUrl(env.getProperty("database.url"));
-		bean.setUser(env.getProperty("database.username"));
-		bean.setPassword(env.getProperty("database.password"));
+	public BasicDataSource dataSource() throws PropertyVetoException {
+		//CloudFoundry config
+		final CloudEnvironment cloudEnvironment = new CloudEnvironment();
+        final MysqlServiceInfo serviceInfo = cloudEnvironment.getServiceInfo("mysql", MysqlServiceInfo.class);
+		
+		BasicDataSource bean = new BasicDataSource();
+		bean.setDriverClassName("com.mysql.jdbc.Driver");
+		bean.setUrl(serviceInfo.getUrl());
+		bean.setUsername(serviceInfo.getUserName());
+		bean.setPassword(serviceInfo.getPassword());
 		return bean;
 	}
 

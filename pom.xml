@@ -529,6 +529,11 @@
 			<artifactId>jsoup</artifactId>
 			<version>1.7.1</version>
 		</dependency>
+		<dependency>
+			<groupId>org.cloudfoundry</groupId>
+			<artifactId>cloudfoundry-runtime</artifactId>
+			<version>0.8.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
