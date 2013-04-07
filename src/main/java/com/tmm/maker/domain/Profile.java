@@ -4,7 +4,9 @@
 package com.tmm.maker.domain;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -12,6 +14,8 @@ import javax.persistence.FetchType;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -39,6 +43,10 @@ public class Profile extends PersistableObject {
 	//starred projects
 	
 	//following
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "USER_FOLLOWING", joinColumns = { @JoinColumn(name = "FOLLOWER_ID") }, 
+				inverseJoinColumns = { @JoinColumn(name = "FOLLOWEE_ID") })
+	private Set<Profile> following = new HashSet<Profile>();
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<SocialConnection> connections = new ArrayList<SocialConnection>();
@@ -98,6 +106,22 @@ public class Profile extends PersistableObject {
 
 	public void removeConnection(SocialConnection connection) {
 		this.connections.remove(connection);
+	}
+
+	public Set<Profile> getFollowing() {
+		return following;
+	}
+
+	public void setFollowing(Set<Profile> following) {
+		this.following = following;
+	}
+	
+	public void addFollowing(Profile following) {
+		getFollowing().add(following);
+	}
+
+	public void removeFollowing(Profile following) {
+		getFollowing().remove(following);
 	}
 
 }
