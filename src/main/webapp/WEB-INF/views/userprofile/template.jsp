@@ -19,6 +19,7 @@
 		</div>
 		
 		<div class="span2">
+			<tiles:insertAttribute name="userfollow" ignore="true"/>
 			<tiles:insertAttribute name="usersuggestedprojects" ignore="true"/>
 			<tiles:insertAttribute name="usersuggestedpeople" ignore="true" />
 			<tiles:insertAttribute name="useretsy" ignore="true" />
