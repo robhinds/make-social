@@ -3,14 +3,20 @@
  */
 package com.tmm.maker.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.tmm.maker.domain.social.SocialConnection;
 import com.tmm.maker.security.Account;
 
 /**
@@ -33,6 +39,9 @@ public class Profile extends PersistableObject {
 	//starred projects
 	
 	//following
+	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<SocialConnection> connections = new ArrayList<SocialConnection>();
 
 	private static final long serialVersionUID = 3458607287170514439L;
 
@@ -72,6 +81,23 @@ public class Profile extends PersistableObject {
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+	
+
+	public List<SocialConnection> getConnections() {
+		return connections;
+	}
+
+	public void setConnections(List<SocialConnection> connections) {
+		this.connections = connections;
+	}
+
+	public void addConnection(SocialConnection connection) {
+		this.connections.add(connection);
+	}
+
+	public void removeConnection(SocialConnection connection) {
+		this.connections.remove(connection);
 	}
 
 }
