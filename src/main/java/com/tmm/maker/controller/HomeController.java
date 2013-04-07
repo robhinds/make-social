@@ -18,7 +18,7 @@ import com.tmm.maker.service.ApplicationService;
  * 
  */
 @Controller
-@RequestMapping("/")
+@RequestMapping("/index.html")
 public class HomeController {
 
 	/**

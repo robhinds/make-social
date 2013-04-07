@@ -1,7 +1,9 @@
 package com.tmm.maker.configuration;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 
 /**
  * Spring doesn't yet support pure java configuration of spring security
@@ -12,4 +14,13 @@ import org.springframework.context.annotation.ImportResource;
  */
 @Configuration
 @ImportResource("classpath:META-INF/spring/security.xml")
-public class SecurityConfiguration {}
+public class SecurityConfiguration {
+
+	@Bean
+	public ShaPasswordEncoder passwordEncoder(){
+		ShaPasswordEncoder encoder = new ShaPasswordEncoder(512);
+		encoder.setEncodeHashAsBase64(true);
+		return encoder;
+	}
+
+}
