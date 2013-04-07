@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
 <tiles-definitions>
 	
 	<definition extends="pagetemplate" name="homepage">
@@ -9,7 +9,33 @@
 	
 	<definition extends="pagetemplate" name="userprofile">
 		<put-attribute name="topcontent" value="/WEB-INF/views/home/homenavbar.jsp"/>
-		<put-attribute name="maincontent" value="/WEB-INF/views/userprofile/userprofilecontent.jsp"/>
+		<put-attribute name="maincontent" >
+		    <definition template="/WEB-INF/views/userprofile/template.jsp">
+				<put-attribute name="useractivitystream">
+				    <definition template="/WEB-INF/views/userprofile/activitystream.jsp">
+				        <put-attribute name="createstatus" value="/WEB-INF/views/userprofile/poststatus.jsp"/>
+				    </definition>
+				</put-attribute>
+				<put-attribute name="userprojects" value="/WEB-INF/views/userprofile/projects.jsp"/>
+				<put-attribute name="useravatar" value="/WEB-INF/views/userprofile/avatar.jsp"/>
+				<put-attribute name="usersuggestedprojects" value="/WEB-INF/views/userprofile/suggestedprojects.jsp"/>
+				<put-attribute name="usersuggestedpeople" value="/WEB-INF/views/userprofile/suggestedpeople.jsp"/>
+				<put-attribute name="useretsy" value="/WEB-INF/views/userprofile/etsydetails.jsp"/>
+		    </definition>
+		</put-attribute>
+	</definition>
+	
+	
+	<definition extends="pagetemplate" name="otheruserprofile">
+		<put-attribute name="topcontent" value="/WEB-INF/views/home/homenavbar.jsp"/>
+		<put-attribute name="maincontent" >
+		    <definition template="/WEB-INF/views/userprofile/template.jsp">
+				<put-attribute name="useractivitystream" value="/WEB-INF/views/userprofile/activitystream.jsp" />
+				<put-attribute name="userprojects" value="/WEB-INF/views/userprofile/projects.jsp"/>
+				<put-attribute name="useravatar" value="/WEB-INF/views/userprofile/avatar.jsp"/>
+				<put-attribute name="useretsy" value="/WEB-INF/views/userprofile/etsydetails.jsp"/>
+		    </definition>
+		</put-attribute>
 	</definition>
 	
 	<definition extends="pagetemplate" name="signup">

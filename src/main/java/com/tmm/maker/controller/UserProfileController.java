@@ -48,6 +48,11 @@ public class UserProfileController {
 		Map<String, Object> model = Maps.newHashMap();
 		model.put("userName", WordUtils.capitalize(viewedUser.getUserName()));
 		model.put("gUrl", md5Util.createGravHash(viewedUser));
-		return new ModelAndView("userprofile", model);
+		
+		if (userName.equals(request.getRemoteUser())){
+			return new ModelAndView("userprofile", model);			
+		}else{
+			return new ModelAndView("otheruserprofile", model);
+		}
 	}
 }
