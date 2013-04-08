@@ -37,6 +37,8 @@ public class Profile extends PersistableObject {
 	//badges
 	
 	//owned projects
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private List<Project> projects = new ArrayList<Project>();
 	
 	//forked projects
 	
@@ -47,6 +49,11 @@ public class Profile extends PersistableObject {
 	@JoinTable(name = "USER_FOLLOWING", joinColumns = { @JoinColumn(name = "FOLLOWER_ID") }, 
 				inverseJoinColumns = { @JoinColumn(name = "FOLLOWEE_ID") })
 	private Set<Profile> following = new HashSet<Profile>();
+	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "USER_FOLLOWING", joinColumns = { @JoinColumn(name = "FOLLOWEE_ID") }, 
+				inverseJoinColumns = { @JoinColumn(name = "FOLLOWER_ID") })
+	private Set<Profile> followers = new HashSet<Profile>();
 	
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
 	private List<SocialConnection> connections = new ArrayList<SocialConnection>();
@@ -118,10 +125,45 @@ public class Profile extends PersistableObject {
 	
 	public void addFollowing(Profile following) {
 		getFollowing().add(following);
+		following.addFollower(this);
 	}
 
 	public void removeFollowing(Profile following) {
 		getFollowing().remove(following);
+		following.removeFollower(this);
+	}
+
+	public List<Project> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(List<Project> projects) {
+		this.projects = projects;
+	}
+	
+	
+	public void addProject(Project p) {
+		getProjects().add(p);
+	}
+
+	public void removeProject(Project p) {
+		getProjects().remove(p);
+	}
+
+	public Set<Profile> getFollowers() {
+		return followers;
+	}
+
+	public void setFollowers(Set<Profile> followers) {
+		this.followers = followers;
+	}
+	
+	public void addFollower(Profile f) {
+		getFollowers().add(f);
+	}
+
+	public void removeFollower(Profile f) {
+		getFollowers().remove(f);
 	}
 
 }
