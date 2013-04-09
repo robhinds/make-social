@@ -13,4 +13,4 @@
 <!-- Google Web Fonts -->
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400' rel='stylesheet' type='text/css'>
 
-<script src="<c:url value='/resources/js/vendor/modernizr-2.6.1-respond-1.1.0.min.js' />"></script>
+<script src="<c:url value='/resources/js/vendor/modernizr/modernizr-2.6.1-respond-1.1.0.min.js' />"></script>
