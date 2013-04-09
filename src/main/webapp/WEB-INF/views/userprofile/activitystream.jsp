@@ -5,10 +5,14 @@
 <div class="activity-stream">
 
 	<!-- Form to create new status if needed -->
-	<tiles:insertAttribute name="createstatus"  ignore="true"/>
+	<form class="form-inline" action="<c:url value='/status' />" method="post">
+		<input type="text" class="span6" placeholder="Tell your peeps what you are doing now..">
+		<button type="submit" class="btn">post status</button>
+	</form>
+	<hr/>
 	
-	<p><img src="<c:url value='/resources/img/activity_edit.png' />" /> Rob created a new project: "project title"  <span class="fine-print">(3 minutes ago)</span></p><hr/>
-	<p><img src="<c:url value='/resources/img/activity_edit.png' />" /> Rob created a new project: "project title2" <span class="fine-print">(6 minutes ago)</span></p><hr/>
-	<p><img src="<c:url value='/resources/img/activity_status.png' />" /> "status update right here, yo!"  <span class="fine-print">(posted by Rob, 11 minutes ago)</span></p><hr/>
+	<div id="activityStream">
+		<!-- Over to Backbone here.. -->
+	</div>
 	
 </div>
