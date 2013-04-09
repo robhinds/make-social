@@ -14,7 +14,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
@@ -33,10 +33,10 @@ public class Project extends PersistableObject {
 	
 	private static final long serialVersionUID = 1L;
 
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "project", cascade = { CascadeType.ALL })
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "project", cascade = { CascadeType.ALL })
 	List<ProjectStep> steps = new ArrayList<ProjectStep>();
 	
-	@OneToOne(fetch = FetchType.LAZY, mappedBy = "project", cascade = { CascadeType.ALL })
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "project", cascade = { CascadeType.ALL })
 	List<Ingredient> ingredients = new ArrayList<Ingredient>();
 
 	@Column
