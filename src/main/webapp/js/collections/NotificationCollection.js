@@ -4,4 +4,4 @@ $(function(){
 	TimelineApp.Collections.NotificationCollection = Backbone.Collection.extend({
 		model: TimelineApp.Models.NotificationModel
 	});
-});
+}());
