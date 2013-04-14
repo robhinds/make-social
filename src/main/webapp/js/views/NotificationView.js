@@ -1,15 +1,16 @@
+var userProfileApp = userProfileApp || {Collections: {}, Models: {}, Views: {}};
 (function () {
-	window.TimelineApp = TimelineApp || {Collections: {}, Models: {}, Views: {}};
-	
-	TimelineApp.Views.NotificationView = Backbone.View.extend({
+	userProfileApp.Views.NotificationView = Backbone.View.extend({
+		tagName: 'div',
+		template: _.template( $('#notification-template').html() ),
 		
-		initialize: function (options) {
-			this.notification = options.notification;
+		initialize: function() {
+			this.model.on( 'change', this.render, this );
 		},
 
 		// populate the html to the dom
-		render: function () {
-			this.$el.html(_.template($('#notification-template').html(), this.note.toJSON()));
+		render: function() {
+			this.$el.html( this.template( this.model.toJSON() ) );
 			return this;
 		}
 	});

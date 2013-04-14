@@ -5,6 +5,7 @@
 <html>
     <head>
        <tiles:insertAttribute name="header" />
+       <tiles:insertAttribute name="backbonetmpl" ignore="true"/>
        <tiles:insertAttribute name="jsimports" />
     </head>
     <body>

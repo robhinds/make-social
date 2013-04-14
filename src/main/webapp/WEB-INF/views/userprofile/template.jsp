@@ -2,7 +2,7 @@
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 
 <div class="container">
-	<div class="row">
+	<div class="row" id="user-profile-page" >
 		<div class="span3">
 			
 			<!-- Users Avatar/welcome -->

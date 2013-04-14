@@ -1,9 +1,0 @@
- <script type="text/template" id="notification-template">
-    <p>
-    	<%- message %> - by <%- author %>  
-    	<span class="fine-print">
-    		<%- date %>
-    	</span>
-    </p>
-    <hr/>
-  </script>

@@ -8,6 +8,7 @@
 	</definition>
 	
 	<definition extends="pagetemplate" name="userprofile">
+	    <put-attribute name="backbonetmpl" value="/WEB-INF/views/templates/timelinenotification.jsp"/>
 		<put-attribute name="topcontent" value="/WEB-INF/views/home/homenavbar.jsp"/>
 		<put-attribute name="maincontent" >
 		    <definition template="/WEB-INF/views/userprofile/template.jsp">
@@ -27,6 +28,7 @@
 	
 	
 	<definition extends="pagetemplate" name="otheruserprofile">
+	    <put-attribute name="backbonetmpl" value="/WEB-INF/views/templates/timelinenotification.jsp"/>
 		<put-attribute name="topcontent" value="/WEB-INF/views/home/homenavbar.jsp"/>
 		<put-attribute name="maincontent" >
 		    <definition template="/WEB-INF/views/userprofile/template.jsp">

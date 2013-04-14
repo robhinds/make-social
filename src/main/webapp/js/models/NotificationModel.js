@@ -1,12 +1,12 @@
+var userProfileApp = userProfileApp || {Collections: {}, Models: {}, Views: {}};
 $(function(){
-	window.TimelineApp = TimelineApp || {Collections: {}, Models: {}, Views: {}};
-	
-	TimelineApp.Models.NotificationModel = Backbone.Model.extend({
+	userProfileApp.Models.NotificationModel = Backbone.Model.extend({
 		defaults: function() {
 			return {
 				message: "",
 				author: "",
-				date: ""
+				date: "",
+				type: ""
 			};
 		}
 	});

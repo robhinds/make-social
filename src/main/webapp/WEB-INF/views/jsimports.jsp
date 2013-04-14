@@ -4,10 +4,15 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery/jquery-1.9.1.min.js"><\/script>')</script>
 <script src="<c:url value='/resources/js/vendor/bootstrap/bootstrap.min.js' />"></script>
-<script src="<c:url value='/resources/js/vendor/backbone/backbone.dev.js' />"></script>
 <script src="<c:url value='/resources/js/vendor/underscore/underscore.dev.js' />"></script>
+<script src="<c:url value='/resources/js/vendor/backbone/backbone.dev.js' />"></script>
 
 <!--  custom stuff -->
+<script src="<c:url value='/resources/js/config.js' />"></script>
+<script src="<c:url value='/resources/js/models/NotificationModel.js' />"></script>
+<script src="<c:url value='/resources/js/collections/NotificationCollection.js' />"></script>
+<script src="<c:url value='/resources/js/views/NotificationView.js' />"></script>
+<script src="<c:url value='/resources/js/views/UserProfileView.js' />"></script>
 <script src="<c:url value='/resources/js/main.js' />"></script>
 
 <script>

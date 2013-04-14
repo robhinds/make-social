@@ -3,15 +3,10 @@
 
 <h3>Recent Activity</h3><hr/>
 <div class="activity-stream">
-
 	<!-- Form to create new status if needed -->
-	<form class="form-inline" action="<c:url value='/status' />" method="post">
-		<input type="text" class="span6" placeholder="Tell your peeps what you are doing now..">
-		<button type="submit" class="btn">post status</button>
-	</form>
-	<hr/>
+	<tiles:insertAttribute name="createstatus" ignore="true" />
 	
-	<div id="activityStream">
+	<div id="notification-timeline">
 		<!-- Over to Backbone here.. -->
 	</div>
 	
