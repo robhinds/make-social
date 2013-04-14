@@ -25,7 +25,7 @@ var userProfileApp = userProfileApp || {Collections: {}, Models: {}, Views: {}};
 		
 		addOne: function( notification ) {
 			var view = new userProfileApp.Views.NotificationView({ model: notification });
-			$('#notification-timeline').append( view.render().el );
+			$('#notification-timeline').prepend( view.render().el );
 		},
 		
 		//smash the current timeline and reload from the loaded collection
