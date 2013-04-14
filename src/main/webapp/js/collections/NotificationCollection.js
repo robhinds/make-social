@@ -2,7 +2,7 @@ var userProfileApp = userProfileApp || {Collections: {}, Models: {}, Views: {}};
 $(function(){	
 	var NotificationList = Backbone.Collection.extend({
 		model: userProfileApp.Models.NotificationModel,
-		url: '/user/timeline',
+		url: window.core.page.appRoot + '/user/timeline',
 		
 		projects: function() {
 			return this.filter(function( notification ) {

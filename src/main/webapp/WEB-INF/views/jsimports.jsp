@@ -7,7 +7,10 @@
 <script src="<c:url value='/resources/js/vendor/underscore/underscore.dev.js' />"></script>
 <script src="<c:url value='/resources/js/vendor/backbone/backbone.dev.js' />"></script>
 
-<!--  custom stuff -->
+<!-- Core custom js stuff -->
+<script src="<c:url value='/resources/js/core.js' />"></script>
+
+<!--  custom backbone stuff stuff -->
 <script src="<c:url value='/resources/js/config.js' />"></script>
 <script src="<c:url value='/resources/js/models/NotificationModel.js' />"></script>
 <script src="<c:url value='/resources/js/collections/NotificationCollection.js' />"></script>

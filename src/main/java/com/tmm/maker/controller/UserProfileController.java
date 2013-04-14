@@ -1,5 +1,6 @@
 package com.tmm.maker.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,8 +11,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.tmm.maker.security.Account;
 import com.tmm.maker.service.AccountService;
@@ -54,5 +58,27 @@ public class UserProfileController {
 		}else{
 			return new ModelAndView("otheruserprofile", model);
 		}
+	}
+	
+	
+	@RequestMapping(value="/timeline", method=RequestMethod.GET)
+	@ResponseBody
+	public List<Map<String, Object>> loadUserTimeline() throws Exception {
+		List<Map<String, Object>> timeline = Lists.newArrayList();
+		Map<String,Object> s = Maps.newHashMap();
+		s.put("message", "this is a dummy test status from the server yo");
+		s.put("author", "rob");
+		s.put("date", "10 minutes ago");
+		s.put("type", "STATUS");
+		timeline.add(s);
+		
+		Map<String,Object> s1 = Maps.newHashMap();
+		s1.put("message", "and another one from server");
+		s1.put("author", "rob");
+		s1.put("date", "1 day ago");
+		s1.put("type", "STATUS");
+		timeline.add(s1);
+		
+		return timeline;
 	}
 }
