@@ -4,10 +4,10 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.WordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,7 +43,7 @@ public class UserProfileController {
 
 
 	@RequestMapping("/{userName}")
-	public ModelAndView viewUserProfile(@PathVariable("userName") String userName, HttpServletRequest request, HttpServletResponse response) throws Exception {
+	public ModelAndView viewUserProfile(@PathVariable("userName") String userName, HttpServletRequest request) throws Exception {
 		Account viewedUser = accountService.loadAccountByUserName(userName);
 		if ( viewedUser == null ) {
 			return new ModelAndView("resourceNotFound");
@@ -80,5 +80,12 @@ public class UserProfileController {
 		timeline.add(s1);
 		
 		return timeline;
+	}
+	
+	@PreAuthorize("isAuthenticated()" )
+	@RequestMapping(value="/timeline", method=RequestMethod.POST)
+	@ResponseBody
+	public List<Map<String, Object>> postNewStatus() throws Exception {
+		return null;
 	}
 }

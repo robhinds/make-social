@@ -2,11 +2,10 @@
 	<div class="row">
 		<div class="span12 white rounded">
 			<div class="jumbotron">
-        		<h1 style="font-weight: 100">Tut tut</h1>
+        		<h1 style="font-weight: 100">You shall not pass!</h1>
         		<br/>
         		<p >
-        			Some techincal problem is causing us some beef - and its not been handled.
-        			(uncaught exception)
+        			Sorry - access denied, please login to access this resource
         		</p>
       		</div>
 		</div>

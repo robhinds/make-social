@@ -46,34 +46,22 @@
 		<put-attribute name="maincontent" value="/WEB-INF/views/signup/signupmaincontent.jsp"/>
 	</definition>
 	
-	<definition name="resourceNotFound" template="/WEB-INF/views/errors/404Error.jsp">
-	</definition>
 	
-	
-	<!-- Error pages 
-	<definition extends="holdingPage" name="error">
-		<put-attribute name="mainContentHero" value="/WEB-INF/views/userMainCol.jsp"/>
-		<put-attribute name="mainColBlurb" value="/WEB-INF/views/errors/404Error.jsp"/>
+	<!-- Error view definitions -->
+	<definition extends="pagetemplate" name="resourceNotFound">
+		<put-attribute name="topcontent" value="/WEB-INF/views/home/homenavbar.jsp"/>
+		<put-attribute name="maincontent" value="/WEB-INF/views/errors/404Error.jsp"/>
 	</definition>
-	
-	<definition extends="holdingPage" name="dataAccessFailure">
-		<put-attribute name="mainContentHero" value="/WEB-INF/views/userMainCol.jsp"/>
-		<put-attribute name="mainColBlurb" value="/WEB-INF/views/errors/dataAccessFailure.jsp"/>
+	<definition extends="pagetemplate" name="dataAccessFailure">
+		<put-attribute name="topcontent" value="/WEB-INF/views/home/homenavbar.jsp"/>
+		<put-attribute name="maincontent" value="/WEB-INF/views/errors/dataAccessFailure.jsp"/>
 	</definition>
-	<definition extends="holdingPage" name="resourceNotFound">
-		<put-attribute name="mainContentHero" value="/WEB-INF/views/userMainCol.jsp"/>
-		<put-attribute name="mainColBlurb" value="/WEB-INF/views/errors/resourceNotFound.jsp"/>
+	<definition extends="pagetemplate" name="uncaughtException">
+		<put-attribute name="topcontent" value="/WEB-INF/views/home/homenavbar.jsp"/>
+		<put-attribute name="maincontent" value="/WEB-INF/views/errors/uncaughtException.jsp"/>
 	</definition>
-	<definition extends="holdingPage" name="uncaughtException">
-		<put-attribute name="mainContentHero" value="/WEB-INF/views/userMainCol.jsp"/>
-		<put-attribute name="mainColBlurb" value="/WEB-INF/views/errors/uncaughtException.jsp"/>
+	<definition extends="pagetemplate" name="accessDenied">
+		<put-attribute name="topcontent" value="/WEB-INF/views/home/homenavbar.jsp"/>
+		<put-attribute name="maincontent" value="/WEB-INF/views/errors/accessDenied.jsp"/>
 	</definition>
-	<definition extends="holdingPage" name="login">
-		<put-attribute name="mainContentHero" value="/WEB-INF/views/userMainCol.jsp"/>
-		<put-attribute name="mainColBlurb" value="/WEB-INF/views/errors/loginFailure.jsp"/>
-    </definition>
-    <definition extends="holdingPage" name="genericError">
-		<put-attribute name="mainContentHero" value="/WEB-INF/views/userMainCol.jsp"/>
-		<put-attribute name="mainColBlurb" value="/WEB-INF/views/errors/errorBody.jsp"/>
-    </definition>-->
 </tiles-definitions>

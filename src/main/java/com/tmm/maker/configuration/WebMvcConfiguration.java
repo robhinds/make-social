@@ -34,6 +34,7 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 		registry.addViewController("/uncaughtException");
 		registry.addViewController("/resourceNotFound");
 		registry.addViewController("/dataAccessFailure");
+		registry.addViewController("/accessDenied");
 	}
 
 	@Bean
@@ -67,6 +68,7 @@ public class WebMvcConfiguration extends WebMvcConfigurerAdapter {
 		mappings.put(".NoSuchRequestHandlingMethodException", "resourceNotFound");
 		mappings.put(".TypeMismatchException", "resourceNotFound");
 		mappings.put(".MissingServletRequestParameterException", "resourceNotFound");
+		mappings.put(".AccessDeniedException", "accessDenied");
 		bean.setExceptionMappings(mappings);
 		return bean;
 	}
